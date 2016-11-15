@@ -17,9 +17,9 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN pip install dlib -y
+RUN pip install dlib
 
-RUN pip install scikit-image -y
+RUN pip install scikit-image
 
 # Apache site configuration
 ADD chute/000-default.conf /etc/apache2/sites-available/
