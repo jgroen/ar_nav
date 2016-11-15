@@ -11,14 +11,15 @@ RUN apt-get update && apt-get install -y \
 	iptables \
 	nodejs \
 	python-imaging \
-	libboost-python-dev cmake \
+	libboost-python-dev \
+	cmake \
 	install python-pip \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN pip install dlib
+RUN pip install dlib -y
 
-RUN pip install scikit-image
+RUN pip install scikit-image -y
 
 # Apache site configuration
 ADD chute/000-default.conf /etc/apache2/sites-available/
