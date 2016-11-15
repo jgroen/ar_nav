@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 	python-imaging \
 	libboost-python-dev \
 	cmake \
-	install python-pip \
+	python-pip \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
