@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip install dlib
-
+RUN pip install numpy
 RUN pip install scikit-image
 
 # Apache site configuration
