@@ -13,14 +13,17 @@ RUN apt-get update && apt-get install -y \
 	python-imaging \
 	python-matplotlib \
 	python-numpy \
+	python-pil \
+	python-scipy \
+	build-essential \
 	cython \
 	libboost-python-dev \
 	cmake \
 	python-pip \
+	python-skimage \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN pip install scikit-image
 RUN pip install dlib
 
 # Apache site configuration
