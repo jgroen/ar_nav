@@ -5,7 +5,7 @@ mkdir -p /var/www/html/CPs
 chmod a+rw /var/www/html/CPs
 
 # Execute the file, one pic every 10 ms
-python /usr/local/bin/seccam.py -m_sec 10 > seccam.log 2> seccam.err &
+python /usr/local/bin/ar_nav_2.py -m_sec 10 > seccam.log 2> seccam.err &
 
 # Add the symlink
 ln -s --relative /var/www/html/CPs /var/www/html/app-dist/
