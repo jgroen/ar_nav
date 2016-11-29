@@ -42,8 +42,8 @@ def detectCP(img1, CP):
     #Convert to Image so we can compare them using PIL
     try:
         raw1 = Image.open(img1) 
-	#or Image.fromstring(mode, size, data) 
-	#or Image.frombuffer(mode, size, data)
+	    #or Image.fromstring(mode, size, data) 
+	    #or Image.frombuffer(mode, size, data)
     except Exception as e:
         print('raw1: %s' % str(e))
         return None
@@ -52,9 +52,9 @@ def detectCP(img1, CP):
     detector = dlib.simple_object_detecotr('cp{}.svm'.format(CP))
     dets = detector(raw1)
     if dets == 0:
-	return None
+        return None
     else:
-	return dets
+        return dets
 
 
 def start_server(host):
@@ -62,19 +62,19 @@ def start_server(host):
     print('Socket Created')
 
     try:
-	s.bind((host,PORT))
+        s.bind((host,PORT))
     except socket.error as msg:
-	print('Bind failed. Error Code : {} Messagee {}'.format(str(msg[0]),msg[1])
-	sys.exit()
+        print('Bind failed. Error Code : {} Messagee {}'.format(str(msg[0]),msg[1])
+        sys.exit(1)
 
     print('Socket bind complete')
 
     s.listen(1)
     print('Socket now listening')
 
-    while True:    
-	client, addr = s.accept()
-    	print('Connected to: {}'.format(addr))
+    while True:
+        client, addr = s.accept()
+        print('Connected to: {}'.format(addr))
 
 
 
@@ -100,7 +100,7 @@ def recieve_img(the_socket):
             total_data.append(sock_data)
         total_len=sum([len(i) for i in total_data])
     return ''.join(total_data)
-	
+
 
 def send_size(data):
     client.sendall(struct.pack('>i', len(data))+data)
@@ -171,35 +171,33 @@ if(__name__ == "__main__"):
     # Setup while loop requesting images from webcam
     while(True):
         try:
-
-	    img = recieve_img(client)
-            
+            img = recieve_img(client)
             # Did we get an image?
-	    CP = 1  #initial CP we are looking for
-	    CP_last = 3 #last CP we need
-	    CP_init = False #we have not yet found the first CP
+            CP = 1  #initial CP we are looking for
+            CP_last = 3 #last CP we need
+            CP_init = False #we have not yet found the first CP
             if(img is None):
                 print("** No image discovered")
                 time.sleep(m_sec/1000)
                 continue
             else:
                 found = detectCP(img, CP)
-		if (found):
+                if (found):
                     print('CP {} found'.format(CP))
                     fileName = "frame{}.png".format(time.time())
                     found.save(fileName)
-		    send_size(found)
-		    CP_init = True # we have found at least the first CP
-		elif CP = CP_last:
-		    break
-		elif (CP_init):
-		    found = detectCP(img, CP+1)
-		    if (found)
-			print('CP {} found'.format(CP+1))
-                    	fileName = "frame{}.png".format(time.time())
-                    	found.save(fileName)
-		    	send_size(found)
-		        CP = CP + 1
+                    send_size(found)
+                    CP_init = True # we have found at least the first CP
+                elif (CP == CP_last):
+                    break
+                elif (CP_init):
+                    found = detectCP(img, CP+1)
+                    if (found):
+                        print('CP {} found'.format(CP+1))
+                        fileName = "frame{}.png".format(time.time())
+                        found.save(fileName)
+                        send_size(found)
+                        CP = CP + 1
         except KeyboardInterrupt:
             break
         except Exception as e:
