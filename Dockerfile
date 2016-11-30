@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 	python-imaging \
 	python-matplotlib \
 	python-numpy \
-	python-pil \
+	python-pillow \
 	python-scipy \
 	build-essential \
 	cython \
