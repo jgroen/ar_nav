@@ -36,7 +36,7 @@ ADD chute/web /var/www/html
 #
 # ADD <path_inside_repository> <path_inside_container>
 #
-ADD chute/ar_nav_2.py /usr/local/bin/ar_nav_2.py
+ADD chute/TestServer_v2.py /usr/local/bin/TestServer_v2.py
 ADD chute/run.sh /usr/local/bin/run.sh
 
 # Set the work dir for nodejs photo server
