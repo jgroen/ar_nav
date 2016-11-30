@@ -34,6 +34,6 @@ ADD chute/TestServer_v2.py /usr/local/bin/TestServer_v2.py
 ADD chute/run.sh /usr/local/bin/run.sh
 
 
-EXPOSE 8888
+EXPOSE 80 81 8888
 
 CMD ["/bin/bash", "/usr/local/bin/run.sh"]
