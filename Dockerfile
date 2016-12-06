@@ -20,10 +20,10 @@ RUN apt-get update && apt-get install -y \
 	libboost-python-dev \
 	cmake \
 	python-pip \
-	python-skimage \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN pip install skimage
 RUN pip install dlib
 
 # Install files required by the chute.
