@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN pip install skimage
+RUN pip install -U scikit-image
 RUN pip install dlib
 
 # Install files required by the chute.
