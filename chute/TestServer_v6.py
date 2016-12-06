@@ -113,7 +113,7 @@ def detectCP(img1, CP):
 	rr,cc = polygon_perimeter(ypoints, xpoints, shape=img.shape, clip=True)
    	img[rr, cc] = 255
 
-	fileName = "frame{}.jpg".format(time.time())
+	fileName = "cp{}_{}.jpg".format(CP, time.time())
 	io.imsave(fileName, img)
 	return True
 
