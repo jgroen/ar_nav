@@ -105,7 +105,7 @@ def recieve_img(the_socket):
 if (__name__ == "__main__"):
     m_sec=5
 
-    ip = '192.168.128.2'
+    ip = ''
 
     clientConn=start_server(ip)
     
