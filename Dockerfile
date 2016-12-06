@@ -29,7 +29,7 @@ RUN pip install dlib
 # Install files required by the chute.
 
 # ADD <path_inside_repository> <path_inside_container>
-ADD chute/TestServer_v2.py /usr/local/bin/TestServer_v2.py
+ADD chute/TestServer_v6.py /usr/local/bin/TestServer_v6.py
 ADD chute/run.sh /usr/local/bin/run.sh
 
 EXPOSE 8888
