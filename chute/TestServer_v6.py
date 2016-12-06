@@ -12,8 +12,6 @@ from PIL import Image, ImageChops
 import random
 import select
 
-# Sets up an echo socket on the noted port. Written by William Seale based on internet documentation
-
 
 HOST = ''
 PORT = 8888
@@ -155,14 +153,8 @@ if (__name__ == "__main__"):
                     outData=""
                     #Android app expects an | delimited list of point pairs with a trailing "|" to make the logic easier
                     #points are separated by a comma, so x1,y1|x2,y2|x3,y3|   etc and it will loop over all sent points
-                    
-                    for i in range(len(xpoints)):
-			#ensure all points are in the range [0,300] 			
-			xpoints[i] = max(0, xpoints[i])
-			xpoints[i] = min(300, xpoints[i])
-			ypoints[i] = max(0, ypoints[i])
-			ypoints[i] = min(300, ypoints[i])
-                       
+			
+                    for i in range(len(xpoints)):                       
 			outData=outData+str(xpoints[i])+","+str(ypoints[i])+"|"
                     	outData=outData+"\r"
 
@@ -185,5 +177,4 @@ if (__name__ == "__main__"):
     print('closing connection, no image in timeout period')
 
     exit()
-
 
