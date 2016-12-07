@@ -7,7 +7,6 @@ MAINTAINER Paradrop Team <info@paradrop.io>
 # Install dependencies.  You can add additional packages here following the example.
 RUN apt-get update && apt-get install -y \
 #	<package> \
-	apache2 \
 	iptables \
 	nodejs \
 	python-imaging \
