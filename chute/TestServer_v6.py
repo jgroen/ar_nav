@@ -7,7 +7,7 @@ import glob
 import dlib
 from skimage import io
 from skimage import draw
-from skimage.draw import polygon_perimeter
+#from skimage.draw import polygon_perimeter
 import PIL
 from PIL import Image, ImageChops
 import random
@@ -110,7 +110,7 @@ def detectCP(img1, CP):
 
 	ypoints = [top, top, bottom, bottom]
 	xpoints = [right, left, left, right]
-	rr,cc = polygon_perimeter(ypoints, xpoints, shape=img.shape, clip=True)
+	rr,cc = draw.polygon_perimeter(ypoints, xpoints, shape=img.shape, clip=True)
    	img[rr, cc] = 255
 
 	fileName = "cp{}_{}.jpg".format(CP, time.time())
