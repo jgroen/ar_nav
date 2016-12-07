@@ -38,4 +38,4 @@ ADD chute/cp3.svm /usr/local/bin/cp3.svm
 
 EXPOSE 8888
 
-#CMD ["/bin/bash", "/usr/local/bin/run.sh"]
+CMD ["/bin/bash", "/usr/local/bin/run.sh"]
