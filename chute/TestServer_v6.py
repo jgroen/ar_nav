@@ -6,7 +6,7 @@ import StringIO
 import glob
 import dlib
 from skimage import io
-from skimage.draw import polygon_perimeter
+from skimage import draw
 import PIL
 from PIL import Image, ImageChops
 import random
