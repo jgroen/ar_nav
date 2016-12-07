@@ -29,18 +29,6 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash -e
-RUN git clone https://github.com/torch/distro.git ~/torch --recursive
-RUN cd ~/torch && ./install.sh && \
-    cd install/bin && \
-    ./luarocks install nn && \
-    ./luarocks install dpnn && \
-    ./luarocks install image && \
-    ./luarocks install optim && \
-    ./luarocks install csvigo && \
-    ./luarocks install torchx && \
-    ./luarocks install tds
-
 RUN cd ~ && \
     mkdir -p dlib-tmp && \
     cd dlib-tmp && \
