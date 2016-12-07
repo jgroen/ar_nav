@@ -1,5 +1,5 @@
 # Augmented Reality Navigation (ar_nav) v 1
-#  - Finds ip address webcam - used for detecting motion
+
 # Version 1.0.0
 FROM paradrop/workshop
 MAINTAINER Paradrop Team <info@paradrop.io>
