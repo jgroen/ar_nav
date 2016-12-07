@@ -26,8 +26,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install dlib
 RUN pip install matplotlib
-RUN pip install PyWavelets
-RUN pip install networkx
 
 # Install files required by the chute.
 
