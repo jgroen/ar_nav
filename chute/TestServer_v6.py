@@ -99,7 +99,7 @@ def detectCP(img1, CP):
     dets = detector(img)
 
     if len(dets) == 0:
-        return False
+        return False, False, False
     else:
 
 	for d in dets:
@@ -110,13 +110,12 @@ def detectCP(img1, CP):
 
 	ypoints = [top, top, bottom, bottom]
 	xpoints = [right, left, left, right]
-	
 	rr,cc = polygon_perimeter(ypoints, xpoints, shape=img.shape, clip=True)
    	img[rr, cc] = 255
 
 	fileName = "cp{}_{}.jpg".format(CP, time.time())
 	io.imsave(fileName, img)
-	return True
+	return True, xpoints, ypoints
 
 
 if (__name__ == "__main__"):
@@ -134,12 +133,11 @@ if (__name__ == "__main__"):
             print("starting img loop")
             img = recieve_img(clientConn)
 
-
             if (img is None):
                 print("** No image discovered")
                 #time.sleep(5)
-
                 break
+
             else:
                 bytesIm=baseio.BytesIO(img)
 	    # For now I'm just creating a "found" image for all incoming for testing.
@@ -148,17 +146,18 @@ if (__name__ == "__main__"):
                 print('image found {}').format(fileName)
                 found.save(fileName)
 
-	    	foundCP = detectCP(fileName, 2)
+	    	foundCP, xp, yp = detectCP(fileName, 2)
 		if (foundCP):
 		    print('CP 2 found')
                     outData=""
                     #Android app expects an | delimited list of point pairs with a trailing "|" to make the logic easier
                     #points are separated by a comma, so x1,y1|x2,y2|x3,y3|   etc and it will loop over all sent points
-			
-                    for i in range(len(xpoints)):                       
-			outData=outData+str(xpoints[i])+","+str(ypoints[i])+"|"
-                    	outData=outData+"\r"
-
+                    print(xp)
+		    print(yp)
+                    for i in range(0,4):                       
+			outData=outData+str(xp[i])+","+str(yp[i])+"|"
+                    outData=outData+"\r"
+		    print('sendall: {}').format(outData)
                     clientConn.sendall(outData)
                     #client.sendall(struct.pack('>i', len(data)) + data)
 
