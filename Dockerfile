@@ -38,7 +38,7 @@ RUN cd ~ && \
     mkdir -p dlib && \
     git clone https://github.com/davisking/dlib.git dlib/ && \
     cd  dlib/ && \
-    python setup.py install --yes USE_AVX_INSTRUCTIONS
+    python setup.py install
 # Install files required by the chute.
 
 # ADD <path_inside_repository> <path_inside_container>
