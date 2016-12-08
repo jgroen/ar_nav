@@ -32,13 +32,10 @@ RUN apt-get install -y --fix-missing \
     iptables \
     python-pillow \
     python-skimage \
+    python-pip \
     && apt-get clean && rm -rf /tmp/* /var/tmp/*
 
-RUN cd ~ && \
-    mkdir -p dlib && \
-    git clone https://github.com/davisking/dlib.git dlib/ && \
-    cd  dlib/ && \
-    python setup.py install
+RUN pip install dlib
 # Install files required by the chute.
 
 # ADD <path_inside_repository> <path_inside_container>
