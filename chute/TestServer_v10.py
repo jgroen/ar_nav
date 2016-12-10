@@ -130,10 +130,10 @@ if (__name__ == "__main__"):
     CP_last = 3 #last CP we need
     CP_init = False  #we have not yet found a CP
 
-    retImHandler = open('placeholder.png', 'rb')
-    returnIm = retImHandler.read()
-    retImHandler.close()
-    retImBytesSize= len(returnIm)
+    #retImHandler = open('placeholder.png', 'rb')
+    #returnIm = retImHandler.read()
+    #retImHandler.close()
+    #retImBytesSize= len(returnIm)
 
     while (True):
         try:
