@@ -40,7 +40,7 @@ RUN git clone https://github.com/davisking/dlib.git && \
     mkdir build && \
     cd build  && \
     cmake .. && \
-    cmake --build
+    cmake --build .
 
 RUN cd ~ && \
     cd dlib && \
