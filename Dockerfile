@@ -39,7 +39,7 @@ RUN pip install dlib
 # Install files required by the chute.
 
 # ADD <path_inside_repository> <path_inside_container>
-ADD chute/TestServer_v6.py /usr/local/bin/TestServer_v6.py
+ADD chute/TestServer_v10.py /usr/local/bin/TestServer_v10.py
 ADD chute/run.sh /usr/local/bin/run.sh
 ADD chute/cp1.svm /usr/local/bin/cp1.svm
 ADD chute/cp2.svm /usr/local/bin/cp2.svm
