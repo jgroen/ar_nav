@@ -1,7 +1,7 @@
 # Augmented Reality Navigation (ar_nav) v 1
 
 # Version 1.0.0
-FROM ubuntu:14.04
+FROM paradrop/workshop
 
 # Install dependencies.  You can add additional packages here following the example.
 RUN apt-get -y update && apt-get install -y \
