@@ -35,8 +35,16 @@ RUN apt-get install -y --fix-missing \
     python-pip \
     && apt-get clean && rm -rf /tmp/* /var/tmp/*
 
-RUN pip install dlib
-# Install files required by the chute.
+RUN git clone https://github.com/davisking/dlib.git
+RUN cd /dlib/examples
+RUN mkdir build
+RUN cd build
+RUN cmake ..
+RUN cmake --build
+
+RUN cd /
+RUN cd dlib
+RUN python setup.py
 
 # ADD <path_inside_repository> <path_inside_container>
 ADD chute/TestServer_v10.py /usr/local/bin/TestServer_v10.py
