@@ -36,15 +36,8 @@ RUN apt-get install -y --fix-missing \
     && apt-get clean && rm -rf /tmp/* /var/tmp/*
 
 RUN git clone https://github.com/davisking/dlib.git && \
-    cd /dlib/examples && \
-    mkdir build && \
-    cd build  && \
-    cmake .. && \
-    cmake --build .
-
-RUN cd ~ && \
     cd dlib && \
-    python setup.py
+    python setup.py install
 
 # ADD <path_inside_repository> <path_inside_container>
 ADD chute/TestServer_v10.py /usr/local/bin/TestServer_v10.py
